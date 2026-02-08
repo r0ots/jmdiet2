@@ -1,13 +1,16 @@
-<section id="features" class="relative z-10 py-16 bg-primary">
+<section id="features" class="relative z-10 pt-10 pb-24 bg-primary overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="stagger-reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {% for feature in site.data.features %}
-      <div class="scroll-reveal bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div class="tilt-card glass-card rounded-2xl p-6 shadow-primary-md hover:shadow-primary-lg hover:-translate-y-2 transition-all duration-300">
         <img src="{{ feature.icon | relative_url }}" alt="{{ feature.title }}" class="w-16 h-16 mb-4" loading="lazy">
         <h3 class="font-heading font-semibold text-dark text-lg mb-2">{{ feature.title }}</h3>
         <p class="text-sm text-dark/60 leading-relaxed">{{ feature.description }}</p>
       </div>
       {% endfor %}
     </div>
+  </div>
+  <div class="wave-divider bottom">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="white"><path d="M0,30 C480,70 960,0 1440,40 L1440,70 L0,70 Z"/></svg>
   </div>
 </section>

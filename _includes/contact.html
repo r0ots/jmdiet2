@@ -1,19 +1,20 @@
-<section id="contact" class="py-20 bg-primary text-white">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section id="contact" class="relative py-20 bg-primary text-white overflow-hidden">
+  <div class="floating-blob bg-white w-64 h-64 top-20 -right-20" style="animation-delay: 1s;"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
     <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-12 scroll-reveal">Cabinet de Villefranche de Lauragais</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 text-left">
-      <div class="scroll-reveal">
-        <svg class="w-8 h-8 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div class="stagger-reveal grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 text-left">
+      <div>
+        <svg class="w-8 h-8 mb-3 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <h3 class="font-heading font-semibold text-xl mb-2">Adresse</h3>
         <p class="text-white/80">{{ site.data.site.address }}<br>{{ site.data.site.city }}</p>
       </div>
-      <div class="scroll-reveal">
-        <svg class="w-8 h-8 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div>
+        <svg class="w-8 h-8 mb-3 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <h3 class="font-heading font-semibold text-xl mb-2">Téléphone</h3>
         <p><a href="{{ site.data.site.phone_link }}" class="text-white/80 hover:text-white transition-colors">{{ site.data.site.phone }}</a></p>
       </div>
-      <div class="scroll-reveal">
-        <svg class="w-8 h-8 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div>
+        <svg class="w-8 h-8 mb-3 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <h3 class="font-heading font-semibold text-xl mb-2">Horaires d'ouverture</h3>
         <div class="text-white/80 text-sm space-y-0.5">
           {% for h in site.data.site.hours %}
@@ -22,7 +23,7 @@
         </div>
       </div>
     </div>
-    <a href="{{ site.data.site.doctolib }}" target="_blank" rel="noopener" class="scroll-reveal inline-flex items-center gap-2 bg-accent hover:bg-yellow-500 text-dark px-8 py-4 rounded-full text-lg font-semibold transition-colors shadow-lg">
+    <a href="{{ site.data.site.doctolib }}" target="_blank" rel="noopener" class="scroll-reveal inline-flex items-center gap-2 bg-accent hover:bg-yellow-500 text-dark px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-accent-lg hover:scale-105">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Prendre RDV sur Doctolib
     </a>

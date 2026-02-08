@@ -1,13 +1,14 @@
-<section id="faq" class="py-20 bg-beige">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-dark text-center mb-16 scroll-reveal">Questions fréquentes</h2>
+<section id="faq" class="relative pt-14 pb-28 bg-beige overflow-hidden">
+  <div class="floating-blob bg-primary w-48 h-48 bottom-10 -right-10" style="animation-delay: 5s;"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-center mb-16 scroll-reveal"><span class="gradient-text">Questions fréquentes</span></h2>
     <div class="space-y-4">
       {% for item in site.data.faq %}
-      <details class="scroll-reveal group bg-white rounded-xl shadow-sm">
+      <details class="scroll-reveal group glass-card rounded-xl shadow-primary-md hover:shadow-primary-lg transition-shadow duration-300">
         <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-6 font-semibold text-dark select-none">
           <span>{{ item.question }}</span>
-          <span class="faq-icon ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-open:rotate-45">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <span class="faq-icon ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center transition-transform duration-300 group-open:rotate-45">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
         <div class="faq-content px-4 sm:px-6 pb-4 sm:pb-6 text-dark/60 leading-relaxed">
@@ -16,5 +17,8 @@
       </details>
       {% endfor %}
     </div>
+  </div>
+  <div class="wave-divider bottom">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="#E07850"><path d="M0,30 C480,70 960,0 1440,40 L1440,70 L0,70 Z"/></svg>
   </div>
 </section>
