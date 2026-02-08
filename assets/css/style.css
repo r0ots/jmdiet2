@@ -20,14 +20,28 @@ details .faq-content {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Navbar scroll state */
+/* Navbar — big at top, shrinks on scroll */
 #navbar {
   background: transparent;
+}
+#navbar-inner {
+  height: 7.5rem;
+  transition: height 0.3s ease;
+}
+#navbar-logo {
+  height: 6rem;
+  transition: height 0.3s ease;
 }
 #navbar.scrolled {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+#navbar.scrolled #navbar-inner {
+  height: 4rem;
+}
+#navbar.scrolled #navbar-logo {
+  height: 2.5rem;
 }
 
 /* Focus visible for accessibility */
