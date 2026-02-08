@@ -2,31 +2,28 @@
   <div class="floating-blob bg-accent w-56 h-56 top-10 -left-20" style="animation-delay: 4s;"></div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <h2 class="font-heading text-3xl sm:text-4xl font-bold text-center mb-16 scroll-reveal"><span class="gradient-text">Tarifs et remboursement</span></h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-      {% for category in site.data.pricing %}
-      <div class="scroll-reveal tilt-card rounded-2xl p-5 sm:p-8 transition-all duration-300 {% if category.highlighted %}bg-gradient-to-br from-primary to-primary-dark text-white shadow-primary-lg{% else %}glass-card text-dark shadow-primary-md hover:shadow-primary-lg{% endif %}">
-        <h3 class="font-heading font-semibold text-xl mb-6">{{ category.title }}</h3>
+    <div class="max-w-2xl mx-auto mb-12">
+      <div class="scroll-reveal tilt-card glass-card rounded-2xl p-5 sm:p-8 shadow-primary-md hover:shadow-primary-lg transition-all duration-300">
         <ul class="space-y-0">
-          {% for item in category.items %}
-          <li class="py-4 {% unless forloop.last %}border-b {% if category.highlighted %}border-white/30{% else %}border-dark/10{% endif %}{% endunless %}">
+          {% for item in site.data.pricing %}
+          <li class="py-4 {% unless forloop.last %}border-b border-dark/10{% endunless %}">
             <div class="flex flex-wrap justify-between items-baseline gap-x-4 mb-1">
               <span class="font-semibold">{{ item.label }}</span>
-              <span class="font-bold {% unless category.highlighted %}text-primary{% endunless %}">{{ item.price }}</span>
+              <span class="font-bold text-primary">{{ item.price }}</span>
             </div>
-            <span class="text-sm {% if category.highlighted %}text-white/80{% else %}text-dark/50{% endif %}">({{ item.duration }})</span>
-            <div class="text-sm mt-1 {% if category.highlighted %}text-white/70{% else %}text-dark/50{% endif %}">
+            <span class="text-sm text-dark/50">({{ item.duration }})</span>
+            <div class="text-sm mt-1 text-dark/50">
               Offre « Duo »* {% if item.duo_duration %}({{ item.duo_duration }}){% endif %} : {{ item.duo_price }}
             </div>
           </li>
           {% endfor %}
         </ul>
       </div>
-      {% endfor %}
     </div>
     <div class="max-w-5xl mx-auto text-sm text-dark/50 space-y-4 scroll-reveal">
       <p>
         <strong class="text-dark/70">* L'offre « Duo »</strong><br>
-        L'offre Duo vous permet une consultation plus longue pour deux personnes avec plus de temps d'échange et d'ajustements (couple, mère/enfant, etc.)
+        L'offre Duo vous permet une consultation pour deux personnes (couple, mère/enfant, etc.).
       </p>
       <p>
         <strong class="text-dark/70">Remboursement</strong><br>
