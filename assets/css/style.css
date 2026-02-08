@@ -76,6 +76,9 @@ details .faq-content {
 .shadow-accent-lg {
   box-shadow: 0 8px 30px rgba(244, 185, 66, 0.25);
 }
+.shadow-doctolib-lg {
+  box-shadow: 0 8px 30px rgba(16, 122, 202, 0.2);
+}
 
 /* Glassmorphism card */
 .glass-card {
