@@ -1,0 +1,18 @@
+- number: 1
+  title: "Première consultation"
+  duration: "environ 1 heure"
+  format: "en présentiel"
+  description: "Définition de vos objectifs, évaluation initiale et mise en place de votre programme personnalisé."
+
+- number: 2
+  title: "Suivi"
+  duration: "environ 30 minutes"
+  format: "présentiel ou téléconsultation"
+  description: "Ajustements personnalisés de votre plan alimentaire selon vos besoins et votre évolution."
+
+- number: 3
+  title: "Stabilisation et autonomie"
+  duration: "environ 30 minutes"
+  format_label: "Fréquence"
+  format: "1 fois par mois"
+  description: "Transition vers l'indépendance avec des points mensuels pour optimiser vos résultats."

@@ -1,0 +1,14 @@
+title: "Jade Mejean | Diététicienne nutritionniste"
+description: "Jade Mejean, diététicienne nutritionniste à Villefranche de Lauragais (31)."
+url: "https://jm-nutrition.fr"
+baseurl: ""
+lang: fr
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - _screenshots

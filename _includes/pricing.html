@@ -1,0 +1,36 @@
+<section id="tarifs" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-dark text-center mb-16 scroll-reveal">Tarifs et remboursement</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+      {% for category in site.data.pricing %}
+      <div class="scroll-reveal rounded-2xl p-5 sm:p-8 {% if category.highlighted %}bg-gradient-to-br from-primary to-primary-dark text-white{% else %}bg-beige text-dark{% endif %}">
+        <h3 class="font-heading font-semibold text-xl mb-6">{{ category.title }}</h3>
+        <ul class="space-y-0">
+          {% for item in category.items %}
+          <li class="py-4 {% unless forloop.last %}border-b {% if category.highlighted %}border-white/30{% else %}border-dark/10{% endif %}{% endunless %}">
+            <div class="flex flex-wrap justify-between items-baseline gap-x-4 mb-1">
+              <span class="font-semibold">{{ item.label }}</span>
+              <span class="font-bold {% unless category.highlighted %}text-primary{% endunless %}">{{ item.price }}</span>
+            </div>
+            <span class="text-sm {% if category.highlighted %}text-white/80{% else %}text-dark/50{% endif %}">({{ item.duration }})</span>
+            <div class="text-sm mt-1 {% if category.highlighted %}text-white/70{% else %}text-dark/50{% endif %}">
+              Offre « Duo »* {% if item.duo_duration %}({{ item.duo_duration }}){% endif %} : {{ item.duo_price }}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="max-w-5xl mx-auto text-sm text-dark/50 space-y-4 scroll-reveal">
+      <p>
+        <strong class="text-dark/70">* L'offre « Duo »</strong><br>
+        L'offre Duo vous permet une consultation plus longue pour deux personnes avec plus de temps d'échange et d'ajustements (couple, mère/enfant, etc.)
+      </p>
+      <p>
+        <strong class="text-dark/70">Remboursement</strong><br>
+        De nombreuses mutuelles remboursent des consultations de diététique via un forfait « diététique » ou « médecines douces ». Une attestation peut être remise à la fin de chaque consultation pour votre dossier de remboursement mutuelle.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+- label: Spécialités
+  href: "#specialites"
+- label: Parcours
+  href: "#parcours"
+- label: Tarifs
+  href: "#tarifs"
+- label: Avis
+  href: "#avis"
+- label: FAQ
+  href: "#faq"

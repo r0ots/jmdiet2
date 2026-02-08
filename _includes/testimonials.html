@@ -1,0 +1,13 @@
+<section id="avis" class="py-20 bg-accent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-dark text-center mb-16 scroll-reveal">Témoignages</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for testimonial in site.data.testimonials %}
+      <div class="scroll-reveal bg-white rounded-2xl p-8 shadow-lg">
+        <p class="italic text-dark leading-relaxed mb-6">« {{ testimonial.quote }} »</p>
+        <p class="font-semibold text-dark text-right">— {{ testimonial.author }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

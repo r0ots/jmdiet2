@@ -1,0 +1,20 @@
+name: "Jade Mejean"
+title: "Diététicienne nutritionniste"
+phone: "06 60 53 97 80"
+phone_link: "tel:+33660539780"
+address: "25 Pont de Barelles"
+city: "31290 Villefranche de Lauragais"
+doctolib: "https://www.doctolib.fr/dieteticien/vernet/jade-mejean-vernet"
+hours:
+  - day: Lundi
+    time: "9h – 19h"
+  - day: Mardi
+    time: "9h – 18h"
+  - day: Mercredi
+    time: "9h – 19h"
+  - day: Jeudi
+    time: "9h – 19h"
+  - day: Vendredi
+    time: "9h – 19h"
+  - day: Samedi
+    time: "10h – 14h"

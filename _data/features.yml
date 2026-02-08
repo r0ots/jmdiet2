@@ -1,0 +1,15 @@
+- title: "Bien-être au quotidien"
+  description: "Sommeil de meilleure qualité, moins de fatigue, amélioration de la digestion, gestion du stress et de l'anxiété par l'alimentation."
+  icon: "assets/images/icone-alimentation-480x480.webp"
+
+- title: "Poids et silhouette"
+  description: "Perte de poids durable fondée sur le rééquilibrage alimentaire, non sur la restriction. Retrouver confiance en vous et des habitudes qui vous correspondent vraiment."
+  icon: "assets/images/icone-pomme-480x480.webp"
+
+- title: "Santé à long terme"
+  description: "Gestion du diabète, du cholestérol, de la tension artérielle, de l'obésité. Prévention des maladies chroniques. Accompagnement des troubles digestifs, allergies et intolérances alimentaires."
+  icon: "assets/images/icone-bloc-note-480x480.webp"
+
+- title: "Énergie et performance"
+  description: "Si vous pratiquez une activité physique régulière ou du sport, une alimentation adaptée peut transformer vos résultats et votre récupération."
+  icon: "assets/images/icone-haltere-480x480.webp"
