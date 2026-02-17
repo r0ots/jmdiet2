@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const mobile = window.innerWidth < 768;
-    const cols = mobile ? 4 : 6, rows = mobile ? 8 : 4, count = cols * rows;
+    const cols = mobile ? 6 : 6, rows = mobile ? 10 : 4, count = cols * rows;
     const colW = 100 / cols;
     const rowH = 100 / rows;
     const shuffled = shuffle(fruitFiles);
@@ -167,26 +167,41 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.left = (colW * col + rand(0, colW - 5)) + '%';
       section.appendChild(img);
 
+      const range = 50;
+      const rp = () => ({ x: rand(-range, range), y: rand(-range, range) });
+      const pts = [{ x: 0, y: 0 }, rp(), rp(), rp()];
       allFruits.push({
-        el: img,
-        // each fruit has 2 overlapping sine waves per axis = non-repeating path
-        xA: rand(25, 50), xF: rand(0.15, 0.3), xP: rand(0, Math.PI * 2),
-        xA2: rand(10, 20), xF2: rand(0.4, 0.7), xP2: rand(0, Math.PI * 2),
-        yA: rand(20, 40), yF: rand(0.1, 0.25), yP: rand(0, Math.PI * 2),
-        yA2: rand(8, 18), yF2: rand(0.35, 0.6), yP2: rand(0, Math.PI * 2),
-        rA: rand(30, 60), rF: rand(0.12, 0.3), rP: rand(0, Math.PI * 2),
+        el: img, pts, t: 0, r: rand(0, 360),
+        rSpeed: rand(-0.2, 0.2),
+        seg: rand(2000, 4000), rp,
       });
     });
   });
 
+  // Catmull-Rom: smooth curve through p1→p2 using p0,p3 as tangent guides
+  const catmull = (p0, p1, p2, p3, t) => {
+    const t2 = t * t, t3 = t2 * t;
+    return 0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t2 + (-p0 + 3 * p1 - 3 * p2 + p3) * t3);
+  };
+
   if (allFruits.length) {
-    const tick = (t) => {
-      const s = t / 1000;
+    let last = performance.now();
+    const tick = (now) => {
+      const dt = now - last;
+      last = now;
       for (const f of allFruits) {
-        const x = f.xA * Math.sin(s * f.xF + f.xP) + f.xA2 * Math.sin(s * f.xF2 + f.xP2);
-        const y = f.yA * Math.sin(s * f.yF + f.yP) + f.yA2 * Math.sin(s * f.yF2 + f.yP2);
-        const r = f.rA * Math.sin(s * f.rF + f.rP);
-        f.el.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
+        f.t += dt / f.seg;
+        if (f.t >= 1) {
+          f.pts.shift();
+          f.pts.push(f.rp());
+          f.t -= 1;
+          f.seg = rand(2000, 4000);
+        }
+        const [p0, p1, p2, p3] = f.pts;
+        const x = catmull(p0.x, p1.x, p2.x, p3.x, f.t);
+        const y = catmull(p0.y, p1.y, p2.y, p3.y, f.t);
+        f.r += f.rSpeed;
+        f.el.style.transform = `translate(${x}px, ${y}px) rotate(${f.r}deg)`;
       }
       requestAnimationFrame(tick);
     };
