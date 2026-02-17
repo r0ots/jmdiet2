@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const mobile = window.innerWidth < 768;
-    const cols = mobile ? 6 : 6, rows = mobile ? 10 : 4, count = cols * rows;
+    const cols = mobile ? 5 : 6, rows = mobile ? 6 : 4, count = cols * rows;
     const colW = 100 / cols;
     const rowH = 100 / rows;
     const shuffled = shuffle(fruitFiles);
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img.alt = '';
       img.className = 'floating-fruit';
       img.loading = 'lazy';
-      const size = mobile ? rand(30, 55) : rand(60, 110);
+      const size = mobile ? rand(45, 82) : rand(60, 110);
       img.style.width = size + 'px';
       img.style.height = 'auto';
       img.style.top = (-5 + rowH * row + rand(0, rowH - 5)) + '%';
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allFruits.push({
         el: img, pts, t: 0, r: rand(0, 360),
         rSpeed: rand(-0.2, 0.2),
-        seg: rand(2000, 4000), rp,
+        seg: rand(1500, 3000), rp,
       });
     });
   });
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
           f.pts.shift();
           f.pts.push(f.rp());
           f.t -= 1;
-          f.seg = rand(2000, 4000);
+          f.seg = rand(1500, 3000);
         }
         const [p0, p1, p2, p3] = f.pts;
         const x = catmull(p0.x, p1.x, p2.x, p3.x, f.t);
