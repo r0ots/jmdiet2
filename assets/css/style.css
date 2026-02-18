@@ -128,21 +128,6 @@ details .faq-content {
   .wave-divider svg { height: 70px; }
 }
 
-/* Floating blobs (original) */
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(20px, -20px) scale(1.05); }
-  66% { transform: translate(-10px, 10px) scale(0.95); }
-}
-.floating-blob {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.08;
-  animation: float 8s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* Floating fruits (v2) */
 section.relative.overflow-hidden {
   isolation: isolate;
@@ -154,7 +139,7 @@ section.relative.overflow-hidden {
   z-index: 0;
   will-change: transform;
 }
-section.overflow-hidden > div:not(.wave-divider):not(.floating-fruit):not(.floating-blob) {
+section.overflow-hidden > div:not(.wave-divider):not(.floating-fruit) {
   position: relative;
   z-index: 1;
 }

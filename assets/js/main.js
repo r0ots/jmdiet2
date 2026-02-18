@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
 
-  // Floating fruits — sine-wave driven for organic motion (only on pages with data-fruits)
-  if (!document.body.dataset.fruits) return;
+  // Floating fruits — Catmull-Rom spline motion
   const fruitFiles = ['g5.svg', 'g10.svg', 'g22.svg', 'g33.svg', 'g50.svg', 'g59.svg', 'g74.svg'];
   const basePath = (document.querySelector('meta[name="base-url"]')?.content || '') + '/assets/images/fruits/';
   const rand = (min, max) => Math.random() * (max - min) + min;
