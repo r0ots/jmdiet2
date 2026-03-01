@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const mobile = window.innerWidth < 768;
-    const cols = mobile ? 5 : 6, rows = mobile ? 6 : 4, count = cols * rows;
+    const cols = mobile ? 5 : 6, rows = mobile ? 10 : 8, count = cols * rows;
     const colW = 100 / cols;
-    const rowH = 100 / rows;
+    const rowH = 200 / rows;
     const shuffled = shuffle(fruitFiles);
     const picked = Array.from({ length: count }, (_, i) => shuffled[i % shuffled.length]);
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const size = mobile ? rand(45, 82) : rand(60, 110);
       img.style.width = size + 'px';
       img.style.height = 'auto';
-      img.style.top = (-5 + rowH * row + rand(0, rowH - 5)) + '%';
+      img.style.top = (-50 + rowH * row + rand(0, rowH - 5)) + '%';
       img.style.left = (colW * col + rand(0, colW - 5)) + '%';
       section.appendChild(img);
 
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allFruits.push({
         el: img, pts, t: 0, r: rand(0, 360),
         rSpeed: rand(-0.2, 0.2),
-        seg: rand(1500, 3000), rp,
+        seg: rand(1500, 3000), rp, section,
       });
     });
   });
@@ -185,9 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (allFruits.length) {
     let last = performance.now();
+    const parallaxSpeed = 0.5;
     const tick = (now) => {
       const dt = now - last;
       last = now;
+      const offsets = new Map();
       for (const f of allFruits) {
         f.t += dt / f.seg;
         if (f.t >= 1) {
@@ -200,7 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const x = catmull(p0.x, p1.x, p2.x, p3.x, f.t);
         const y = catmull(p0.y, p1.y, p2.y, p3.y, f.t);
         f.r += f.rSpeed;
-        f.el.style.transform = `translate(${x}px, ${y}px) rotate(${f.r}deg)`;
+        if (!offsets.has(f.section)) offsets.set(f.section, -f.section.getBoundingClientRect().top * parallaxSpeed);
+        const py = offsets.get(f.section);
+        f.el.style.transform = `translate(${x}px, ${y + py}px) rotate(${f.r}deg)`;
       }
       requestAnimationFrame(tick);
     };
